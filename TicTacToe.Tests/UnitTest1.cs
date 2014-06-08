@@ -25,7 +25,7 @@ namespace TicTacToe.Tests
         {
             //Arrange
             var board = new TicTacToeGame();
-            board.SetPosition(1, 1, State.O);
+            board.SetPosition(1, 1, State.X);
 
             //Act
             var result = board.SetPosition(1, 1, State.O);
@@ -34,29 +34,40 @@ namespace TicTacToe.Tests
             Assert.AreEqual(false, result);
         }
 
+        [Test]
+        public void System_shows_who_is_next_player_()
+        {
+            //Arrange
+            var board = new TicTacToeGame();
+            board.SetPosition(1, 1, State.O);
+
+            //Act
+            var nextPlayer = board.NextPlayer();
+
+            //Assert
+            Assert.AreEqual(nextPlayer, State.O);
+        }
+
+
+        [Test]
+        public void When_circles_win_in_horizontal()
+        {
+            //Arrange
+            var board = new TicTacToeGame();
+            board.SetPosition(1, 1, State.O);
+            board.SetPosition(2, 2, State.X);
+            board.SetPosition(2, 1, State.O);
+            board.SetPosition(2, 3, State.X);
+            board.SetPosition(3, 1, State.O);
+
+            //Act
+            var isWinner = board.IsWinner();
+
+            //Assert
+            Assert.AreEqual(true, isWinner);
+        }
 
 
         
-    }
-
-    public class TicTacToeGame
-    {
-        private readonly State[,] _board = new State[3,3];
-        public bool SetPosition(int cordX, int cordY, State state)
-        {
-            if (!(cordX >= 0 && cordX <= 2) && (cordY >= 0 && cordY <= 2))
-                return false;
-            if (_board[cordX, cordY] != State.Blank)
-                return false;
-            _board[cordX, cordY] = state;
-            return true;
-        }
-    }
-
-    public enum State
-    {
-        Blank,
-        X,
-        O
     }
 }

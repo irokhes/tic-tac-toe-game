@@ -59,6 +59,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicTacToe\TicTacToe.csproj">
+      <Project>{0DD8C3D2-7D97-4401-9BAA-E6073EABC414}</Project>
+      <Name>TicTacToe</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
