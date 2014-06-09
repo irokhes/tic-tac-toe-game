@@ -1,4 +1,6 @@
-﻿namespace TicTacToe
+﻿using System.Runtime.Versioning;
+
+namespace TicTacToe
 {
     public class TicTacToeGame
     {
@@ -10,14 +12,24 @@
             _turn = State.X;
         }
 
-        public bool SetPosition(int cordX, int cordY, State state)
+        public Result SetPosition(int cordX, int cordY, State state)
         {
+            var result = new Result();
             if ((cordX < 0 || cordX > 2) || (cordY < 0 || cordY > 2))
-                return false;
-            if (_board[cordX, cordY] != State.Blank)
-                return false;
-            _board[cordX, cordY] = state;
-            return true;
+            {
+                result.ErrorMsg = "Index out of range";
+            } 
+            else if (_board[cordX, cordY] != State.Blank)
+            {
+                result.ErrorMsg = "Invalid position";
+            }
+            else
+            {
+                _board[cordX, cordY] = state;
+                result.IsWinner = IsWinner(cordX,cordY, state);
+            }
+            
+            return result;
         }
 
         public State NextPlayer()
@@ -26,14 +38,30 @@
             return _turn;
         }
 
-        public bool IsWinner()
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
-        public object IsWinner(int cordX, int cordY)
+        public bool IsWinner(int cordX, int cordY, State player)
         {
-            throw new System.NotImplementedException();
+            var isWinner = true;
+            for (int i = 0; i < 3; i++)
+            {
+                if (_board[cordX, i] != player)
+                    isWinner = false;
+            }
+            if (isWinner) return true;
+            isWinner = true;
+            for (int i = 0; i < 3; i++)
+            {
+                if (_board[i, cordY] != player)
+                    isWinner = false;
+            }
+            return isWinner;
         }
+    }
+
+    public class Result
+    {
+        public bool IsWinner { get; set; }
+        public string ErrorMsg { get; set; }
     }
 }

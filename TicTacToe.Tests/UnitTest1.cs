@@ -17,7 +17,7 @@ namespace TicTacToe.Tests
             var result = board.SetPosition(1, 4, State.O);
 
             //Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual("Index out of range", result.ErrorMsg);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace TicTacToe.Tests
             var result = board.SetPosition(1, 1, State.O);
 
             //Assert
-            Assert.AreEqual(false, result);
+            Assert.AreEqual("Invalid position", result.ErrorMsg);
         }
 
         [Test]
@@ -54,20 +54,41 @@ namespace TicTacToe.Tests
         {
             //Arrange
             var board = new TicTacToeGame();
-            board.SetPosition(1, 1, State.O);
+            board.SetPosition(0, 0, State.O);
             board.SetPosition(2, 2, State.X);
-            board.SetPosition(2, 1, State.O);
-            board.SetPosition(2, 3, State.X);
-            board.SetPosition(3, 1, State.O);
+            board.SetPosition(1, 0, State.O);
+            board.SetPosition(2, 1, State.X);
+            
+            
 
             //Act
-            var isWinner = board.IsWinner();
+            var result = board.SetPosition(2, 0, State.O);
 
             //Assert
-            Assert.AreEqual(true, isWinner);
+            Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
+            Assert.AreEqual(result.IsWinner, true);
         }
 
+        [Test]
+        public void When_crosses_win_in_vertical()
+        {
+            //Arrange
+            var board = new TicTacToeGame();
+            board.SetPosition(0, 0, State.O);
+            board.SetPosition(2, 2, State.X);
+            board.SetPosition(0, 1, State.O);
+            board.SetPosition(2, 1, State.X);
+            board.SetPosition(1, 0, State.O);
+            
 
+
+            //Act
+            var result = board.SetPosition(2, 0, State.X);
+
+            //Assert
+            Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
+            Assert.AreEqual(result.IsWinner, true);
+        }
         
     }
 }
