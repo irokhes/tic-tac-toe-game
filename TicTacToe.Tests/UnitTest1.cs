@@ -45,7 +45,7 @@ namespace TicTacToe.Tests
             var nextPlayer = board.NextPlayer();
 
             //Assert
-            Assert.AreEqual(State.O, nextPlayer);
+            Assert.AreEqual(nextPlayer, State.O);
         }
 
 
@@ -66,7 +66,7 @@ namespace TicTacToe.Tests
 
             //Assert
             Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
-            Assert.AreEqual(true, result.IsWinner);
+            Assert.AreEqual(result.IsWinner, true);
         }
 
         [Test]
@@ -87,46 +87,7 @@ namespace TicTacToe.Tests
 
             //Assert
             Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
-            Assert.AreEqual(true, result.IsWinner);
-        }
-
-
-        [Test]
-        public void When_circles_win_diagonal_starting_from_0_0()
-        {
-            //Arrange
-            var board = new TicTacToeGame();
-            board.SetPosition(0, 0, State.O);
-            board.SetPosition(0, 1, State.X);
-            board.SetPosition(1, 1, State.O);
-            board.SetPosition(2, 0, State.X);
-            
-
-            //Act
-            var result = board.SetPosition(2, 2, State.O);
-
-            //Assert
-            Assert.AreEqual(true, result.IsWinner);
-
-        }
-
-        [Test]
-        public void When_circles_win_diagonal_starting_from_2_0()
-        {
-            //Arrange
-            var board = new TicTacToeGame();
-            board.SetPosition(2, 0, State.O);
-            board.SetPosition(0, 1, State.X);
-            board.SetPosition(1, 1, State.O);
-            board.SetPosition(1, 2, State.X);
-
-
-            //Act
-            var result = board.SetPosition(2, 0, State.O);
-
-            //Assert
-            Assert.AreEqual(true, result.IsWinner);
-
+            Assert.AreEqual(result.IsWinner, true);
         }
         
     }
