@@ -1,7 +1,0 @@
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\bin\Debug\TicTacToe.Tests.dll
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\bin\Debug\TicTacToe.Tests.pdb
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\bin\Debug\nunit.framework.dll
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\bin\Debug\nunit.framework.xml
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.csprojResolveAssemblyReference.cache
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.dll
-D:\WorkSpace\Learning\TicTacToe\TicTacToe.Tests\obj\Debug\TicTacToe.Tests.pdb

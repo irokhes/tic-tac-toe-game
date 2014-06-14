@@ -1,6 +1,0 @@
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.config
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojResolveAssemblyReference.cache
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
-D:\WorkSpace\Learning\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb
