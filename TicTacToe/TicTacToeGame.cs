@@ -57,13 +57,13 @@ namespace TicTacToe
             }
             if (isWinner) return true;
             isWinner = true;
-            if (_board[0, 0] != player && _board[1, 1] != player && _board[2, 2] != player)
+            if (_board[0, 0] != player || _board[1, 1] != player || _board[2, 2] != player)
             {
                 isWinner = false;
             }
             if (isWinner) return true;
             isWinner = true;
-            if (_board[2, 0] != player && _board[1, 1] != player && _board[0, 2] != player)
+            if (_board[2, 0] != player || _board[1, 1] != player || _board[0, 2] != player)
             {
                 isWinner = false;
             }

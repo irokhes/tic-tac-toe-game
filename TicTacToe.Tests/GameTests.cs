@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace TicTacToe.Tests
 {
     [TestFixture]
-    public class UnitTest1
+    public class GameTests
     {
         [Test]
         public void When_user_start_the_game_positions_must_be_inside_the_board()
@@ -66,7 +66,7 @@ namespace TicTacToe.Tests
 
             //Assert
             Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
-            Assert.AreEqual(result.IsWinner, true);
+            Assert.AreEqual(true, result.IsWinner);
         }
 
         [Test]
@@ -87,7 +87,47 @@ namespace TicTacToe.Tests
 
             //Assert
             Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
-            Assert.AreEqual(result.IsWinner, true);
+            Assert.AreEqual( true, result.IsWinner);
+        }
+
+
+        [Test]
+        public void When_circles_win_diagonal_from_0_0()
+        {
+            //Arrange
+            var board = new TicTacToeGame();
+            board.SetPosition(0, 0, State.O);
+            board.SetPosition(0, 1, State.X);
+            board.SetPosition(1, 1, State.O);
+            board.SetPosition(2, 1, State.X);
+           
+
+            //Act
+            var result = board.SetPosition(2, 2, State.O);
+
+            //Assert
+            Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
+            Assert.AreEqual( true, result.IsWinner);
+        }
+
+
+        [Test]
+        public void When_circles_win_diagonal_from_2_0()
+        {
+            //Arrange
+            var board = new TicTacToeGame();
+            board.SetPosition(2, 0, State.O);
+            board.SetPosition(0, 1, State.X);
+            board.SetPosition(1, 1, State.O);
+            board.SetPosition(2, 1, State.X);
+
+
+            //Act
+            var result = board.SetPosition(0, 2, State.O);
+
+            //Assert
+            Assert.IsTrue(string.IsNullOrEmpty(result.ErrorMsg));
+            Assert.AreEqual(true, result.IsWinner);
         }
         
     }
